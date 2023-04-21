@@ -15,3 +15,16 @@ export const EventSchema = new Schema({
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true}
 }, { timestamps: true, toJSON: { virtuals: true }})
 
+EventSchema.virtual('creator', {
+    ref: 'Account',
+    localField: 'creatorId',
+    foreignField: '_id',
+    justOne: true
+})
+
+EventSchema.virtual('ticketHolder', {
+    localField: '_id',
+    foreignField: 'eventId',
+    count: true,
+    ref: 'TicketHolder'
+})
