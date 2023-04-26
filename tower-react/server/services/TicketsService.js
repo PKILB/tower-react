@@ -5,6 +5,11 @@ import { eventsService } from "./EventsService"
 
 
 class TicketsService {
+    async getTicketsByEventId(eventId) {
+        const tickets = await dbContext.Tickets.find({eventId})
+        .populate('profile', 'name picture')
+        return tickets
+    }
     async getTicketsForEventsIAmAttending(accountId) {
         const tickets = await dbContext.Tickets.find({accountId})
         .populate({

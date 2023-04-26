@@ -12,7 +12,7 @@ export class EventsController extends BaseController {
         this.router
         .get('', this.getAllEvents)
         .get('/:eventId', this.getEventById)
-        .get('/eventId/tickets', this.getTicketsByEventId)
+        .get('/:eventId/tickets', this.getTicketsByEventId)
         .use(Auth0Provider.getAuthorizedUserInfo)
         .post('', this.createEvent)
         .put('/:eventId', this.editEvent)
