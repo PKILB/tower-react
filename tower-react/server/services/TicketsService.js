@@ -1,10 +1,26 @@
 import { dbContext } from "../db/DbContext"
-import { Forbidden } from "../utils/Errors"
+import { BadRequest, Forbidden } from "../utils/Errors"
 import { eventsService } from "./EventsService"
 
 
 
 class TicketsService {
+    async deleteTicket(ticketId, requestorId) {
+        const ticket = await dbContext.Tickets.findById(ticketId)
+        //@ts-ignore
+        const event = await eventsService.getEventById(ticket.eventId)
+        if(!ticket) {
+            throw new BadRequest('Invalid Id')
+        }
+        if(ticket.accountId.toString() !== requestorId) {
+            throw new Forbidden("I'm Onto You")
+        }
+
+        await ticket.remove()
+        event.capacity++
+        await event.save()
+        return 'You are no longer attending this event!'
+    }
     async getTicketsByEventId(eventId) {
         const tickets = await dbContext.Tickets.find({eventId})
         .populate('profile', 'name picture')
@@ -21,7 +37,7 @@ class TicketsService {
         })
         return tickets
     }
-    async createEvent(ticketData) {
+    async createTicket(ticketData) {
         const event = await eventsService.getEventById(ticketData.eventId)
         if (event.isCanceled) {
             throw new Forbidden('Event is canceled!')
