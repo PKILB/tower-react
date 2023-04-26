@@ -5,6 +5,17 @@ import { eventsService } from "./EventsService"
 
 
 class TicketsService {
+    async getTicketsForEventsIAmAttending(accountId) {
+        const tickets = await dbContext.Tickets.find({accountId})
+        .populate({
+            path: 'event',
+            populate: {
+                path: 'creator ticketCount',
+                select: 'name picture'
+            }
+        })
+        return tickets
+    }
     async createEvent(ticketData) {
         const event = await eventsService.getEventById(ticketData.eventId)
         if (event.isCanceled) {

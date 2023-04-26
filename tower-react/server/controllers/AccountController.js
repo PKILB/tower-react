@@ -9,7 +9,7 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
-      .get('', this.getTicketsForEventsIAmAttending)
+      .get('/tickets', this.getTicketsForEventsIAmAttending)
   }
 
   async getUserAccount(req, res, next) {
@@ -24,8 +24,8 @@ export class AccountController extends BaseController {
   async getTicketsForEventsIAmAttending(req, res, next) {
     try {
       const accountId = req.userInfo.id
-      const events = await ticketsService.getTicketsForEventsIAmAttending(accountId)
-      return res.send(events)
+      const tickets = await ticketsService.getTicketsForEventsIAmAttending(accountId)
+      return res.send(tickets)
     } catch (error) {
       next(error)
     }
