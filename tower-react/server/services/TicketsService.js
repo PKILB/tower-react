@@ -42,6 +42,9 @@ class TicketsService {
         if (event.isCanceled) {
             throw new Forbidden('Event is canceled!')
         }
+        if (event.capacity == 0) {
+            throw new BadRequest('This Event Is Full!')
+        }
         const ticket = await dbContext.Tickets.create(ticketData)
         await ticket.populate('profile', 'name picture')
         await ticket.populate({
