@@ -6,7 +6,8 @@ import { eventsService } from "./EventsService"
 class CommentsService {
     async deleteComment(commentId, requestorId) {
         const comment = await dbContext.Comments.findById(commentId)
-        const event = await eventsService.getEventById(comment?.eventId)
+        //@ts-ignore
+        const event = await eventsService.getEventById(comment.eventId)
         if(!comment) {
             throw new BadRequest('Invalid Id')
         }
