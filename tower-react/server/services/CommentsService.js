@@ -4,8 +4,17 @@ import { eventsService } from "./EventsService"
 
 
 class CommentsService {
-    deleteComment(commentId, requestorId) {
-        throw new Error("Method not implemented.")
+    async deleteComment(commentId, requestorId) {
+        const comment = await dbContext.Comments.findById(commentId)
+        const event = await eventsService.getEventById(comment?.eventId)
+        if(!comment) {
+            throw new BadRequest('Invalid Id')
+        }
+        if(comment.creatorId.toString() !== requestorId) {
+            throw new Forbidden("I'm onto you")
+        }
+        await comment.remove()
+        return 'This Comment Has Been Deleted'
     }
     async getEventComments(eventId) {
         const comments = await dbContext.Comments.find({ eventId }).populate('creator', 'name picture')
