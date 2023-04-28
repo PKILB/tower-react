@@ -10,22 +10,28 @@ import EventCard from "../components/EventCard";
     try {
       await eventsService.getEvents();
     } catch (error) {
-      Pop.error(error)
+      Pop.error(error.message)
     }
   }
-  let events = AppState.events.map((e) => {
+  let events = (AppState.events.map(e => {
     return (
-      <div className="col-4 col-md-12" key={e.id}>
+      <div className="col-md-4" key={e.id}>
         <EventCard event={e}/>
       </div>
     );
-  });
+  }));
   useEffect(() => {
     getEvents()
   }, []);
 
   return (
-    <section></section>
+    <section className="home-page">
+      <div className="container my-3">
+        <div className="row">
+          {events}
+        </div>
+      </div>
+    </section>
   )
 }
 

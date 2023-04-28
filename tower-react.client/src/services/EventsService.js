@@ -7,8 +7,9 @@ import { Event } from "../models/Event";
 
 class EventsService {
     async getEvents() {
+        AppState.events = []
         const res = await api.get("api/events");
-        const events = res.data.events.map((event) => new Event(event));
+        const events = res.data.map((event) => new Event(event));
         AppState.events = events
 
     }
