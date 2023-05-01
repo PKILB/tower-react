@@ -11,7 +11,7 @@ export function App() {
         <Navbar />
       </header>
 
-      <main>
+      <main className='bg-dark'>
         <Outlet />
       </main>
 
