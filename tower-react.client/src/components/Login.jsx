@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { AppState } from "../AppState.js"
 import { AuthService } from "../services/AuthService.js"
 
-function Login() {
+export function Login() {
 
   function login() {
     AuthService.loginWithRedirect()
