@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../assets/img/cw-logo.png';
+import logo from '../assets/img/Tower-logo.svg';
 import Login from "./Login.jsx";
 
 export function Navbar() {
