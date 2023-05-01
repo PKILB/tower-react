@@ -8,7 +8,7 @@ import './styles/EventCard.scss';
 export default function EventCard({event}) {
 
     return (
-        <div className="card event-card" >
+        <div className="card event-card my-3 bg-dark" >
             <img className="img-fluid" src={event.coverImg} alt=""/>
         </div>
     )

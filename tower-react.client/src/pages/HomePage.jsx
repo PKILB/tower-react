@@ -4,6 +4,7 @@ import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { eventsService } from "../services/EventsService";
 import EventCard from "../components/EventCard";
+import unsplash from "../assets/img/Unsplash.svg";
 
   function HomePage() {
   async function getEvents() {
@@ -27,6 +28,9 @@ import EventCard from "../components/EventCard";
   return (
     <section className="home-page">
       <div className="container my-3">
+        <div className="row">
+          <img src={unsplash} alt="" />
+        </div>
         <div className="row">
           {events}
         </div>
