@@ -29,10 +29,12 @@ import unsplash from "../assets/img/Unsplash.svg";
     <section className="home-page">
       <div className="container my-3">
         <div className="row">
+          <div className="">
           <img src={unsplash} alt="" />
+          </div>
         </div>
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 p-0">
             <div className="row">
               {events}
             </div>

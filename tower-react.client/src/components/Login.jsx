@@ -3,8 +3,9 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { AppState } from "../AppState.js"
 import { AuthService } from "../services/AuthService.js"
+import "../components/styles/Profile.scss"
 
-export function Login() {
+function Login() {
 
   function login() {
     AuthService.loginWithRedirect()
@@ -21,7 +22,7 @@ export function Login() {
 
   const authenticated = (
     <div className="my-2 my-lg-0">
-      <img src={AppState.account?.picture || AppState.user?.picture} alt="account photo" height="40" className="rounded selectable no-select" data-bs-toggle="dropdown"
+      <img src={AppState.account?.picture || AppState.user?.picture} alt="account photo" height="40" className="profile-pic rounded selectable no-select" data-bs-toggle="dropdown"
         aria-expanded="false" />
 
       <div className="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-0" aria-labelledby="authDropdown">
