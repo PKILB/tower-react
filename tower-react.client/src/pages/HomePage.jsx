@@ -32,7 +32,11 @@ import unsplash from "../assets/img/Unsplash.svg";
           <img src={unsplash} alt="" />
         </div>
         <div className="row">
-          {events}
+          <div className="col-12">
+            <div className="row">
+              {events}
+            </div>
+          </div>
         </div>
       </div>
     </section>

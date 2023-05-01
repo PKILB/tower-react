@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/img/Tower-logo.svg';
-import Login from "./Login.jsx";
+// import Login from "./Login.jsx";
 
 export function Navbar() {
   return (
@@ -24,13 +24,8 @@ export function Navbar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav me-auto">
-          <li>
-            <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
-              About
-            </Link>
-          </li>
+          
         </ul>
-        <Login />
       </div >
     </nav >
   )
