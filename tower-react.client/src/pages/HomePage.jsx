@@ -29,8 +29,21 @@ import unsplash from "../assets/img/Unsplash.svg";
     <section className="home-page">
       <div className="container my-3">
         <div className="row">
-          <div className="">
+          <div className="position-relative">
           <img src={unsplash} alt="" />
+            <div className="row position-absolute top-0 start-0 py-3 px-5">
+              <div className="col-12">
+                <h3>
+                  Get ahead of the scalpers.
+                </h3>
+                <h3>
+                  Reserve your seat now with
+                </h3>
+                <h3>
+                  real events for real people.
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
         <div className="row">
