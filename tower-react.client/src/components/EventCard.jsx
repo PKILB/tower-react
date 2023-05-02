@@ -2,12 +2,14 @@ import { Event } from "../models/Event";
 import React from "react";
 import PropTypes from "prop-types";
 import './styles/EventCard.scss';
+import { Link } from "react-router-dom";
 
 
 /**@param {{event:Event}} props */
 export default function EventCard({event}) {
 
     return (
+            <Link to={`event/${event.creator.id}`}>
         <div className="card event-card my-3 bg-dark elevation-5 border-color" >
             <img className="img-fluid" src={event.coverImg} alt=""/>
             <div className="card-img-overlay event-card-content row d-flex align-content-end">
@@ -18,6 +20,7 @@ export default function EventCard({event}) {
                 </div>
             </div>
         </div>
+            </Link>
     )
 }
 
