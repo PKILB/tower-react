@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
 import { eventsService } from "../services/EventsService";
@@ -21,6 +21,8 @@ import unsplash from "../assets/img/Unsplash.svg";
       </div>
     );
   }));
+
+  // const filterCategory = useRef('')
   useEffect(() => {
     getEvents()
   }, []);
@@ -43,6 +45,9 @@ import unsplash from "../assets/img/Unsplash.svg";
                   real events for real people.
                 </h3>
               </div>
+            </div>
+            <div className="row">
+
             </div>
           </div>
         </div>
