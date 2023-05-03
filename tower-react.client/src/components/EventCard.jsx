@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function EventCard({event}) {
 
     return (
-            <Link to={`event/${event.creator.id}`}>
+            <Link to={`event/${event.id}`}>
         <div className="card event-card my-3 bg-dark elevation-5 border-color" >
             <img className="img-fluid" src={event.coverImg} alt=""/>
             <div className="card-img-overlay event-card-content row d-flex align-content-end">
@@ -25,5 +25,5 @@ export default function EventCard({event}) {
 }
 
 EventCard.propTypes = {
-    event: PropTypes.instanceOf(Event)
+    event: PropTypes.object.isRequired
 }
