@@ -5,6 +5,7 @@ import Pop from "../utils/Pop";
 import { eventsService } from "../services/EventsService";
 import EventCard from "../components/EventCard";
 import unsplash from "../assets/img/Unsplash.svg";
+import "./Styles/HomePage.scss"
 
   function HomePage() {
   async function getEvents() {
@@ -29,10 +30,11 @@ import unsplash from "../assets/img/Unsplash.svg";
 
   return (
     <section className="home-page">
-      <div className="container my-3">
-        <div className="row">
+      <div className="container-fluid my-3">
+        <div className="row ">
+          <div className="col-12 m-auto">
           <div className="position-relative">
-          <img src={unsplash} alt="" />
+          <img src={unsplash} alt="" className="img-size"/>
             <div className="row position-absolute top-0 start-0 py-3 px-5">
               <div className="col-12">
                 <h3>
@@ -46,13 +48,14 @@ import unsplash from "../assets/img/Unsplash.svg";
                 </h3>
               </div>
             </div>
+          </div>
             <div className="row">
 
             </div>
           </div>
         </div>
         <div className="row">
-          <div className="col-12 p-0">
+          <div className="col-11 m-auto">
             <div className="row">
               {events}
             </div>

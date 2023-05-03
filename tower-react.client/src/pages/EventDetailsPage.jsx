@@ -5,7 +5,7 @@ export function eventDetailsPage() {
 
     return(
         <section>
-            
+            <div className="container-fluid"></div>
         </section>
     );
 }
