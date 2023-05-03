@@ -27,7 +27,11 @@ function eventDetailsPage() {
     return(
         <section>
             <div className="container-fluid">
+                <div className="row">
+                    <div className="col-12">
                 <EventDetails event={event} />
+                    </div>
+                </div>
             </div>
         </section>
     );
