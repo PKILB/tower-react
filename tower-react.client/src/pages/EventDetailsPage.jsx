@@ -27,8 +27,8 @@ function eventDetailsPage() {
     return(
         <section>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12">
+                <div className="row ">
+                    <div className="col-12 bg-light">
                 <EventDetails event={event} />
                     </div>
                 </div>
