@@ -10,5 +10,6 @@ export class Event {
         this.isCanceled = data.description;
         this.type = data.type;
         this.creator = data.creator;
+        this.creatorId = data.creatorId
     }
 }

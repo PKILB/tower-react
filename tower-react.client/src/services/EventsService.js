@@ -6,6 +6,11 @@ import { Event } from "../models/Event";
 
 
 class EventsService {
+    async getEventById(eventId) {
+        // AppState.activeEvent = null 
+        const res = await api.get('api/events/' + eventId);
+        AppState.activeEvent = new Event(res.data);
+    }
     async getEvents() {
         AppState.events = []
         const res = await api.get("api/events");
