@@ -6,6 +6,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { useParams } from "react-router-dom";
 import EventDetails from "../components/EventDetails";
+import "./Styles/EventDetailsPage.scss";
 
 function eventDetailsPage() {
     // let event = AppState.event;
@@ -28,8 +29,10 @@ function eventDetailsPage() {
         <section>
             <div className="container-fluid">
                 <div className="row ">
-                    <div className="col-12 bg-light">
+                    <div className="col-12">
+                        <div className="bg-image" style={{ backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
                 <EventDetails event={event} />
+                        </div>
                     </div>
                 </div>
             </div>
