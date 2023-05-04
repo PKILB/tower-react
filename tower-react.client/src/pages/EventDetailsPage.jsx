@@ -29,7 +29,7 @@ function eventDetailsPage() {
         <section>
             <div className="container-fluid">
                 <div className="row ">
-                    <div className="col-12">
+                    <div className="col-11 m-auto">
                         <div className="bg-image" style={{ backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
                 <EventDetails event={event} />
                         </div>
