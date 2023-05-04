@@ -34,6 +34,7 @@ function eventDetailsPage() {
                 <EventDetails event={event} />
                         </div>
                     </div>
+                
                 </div>
             </div>
         </section>
