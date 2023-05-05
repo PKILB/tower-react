@@ -7,7 +7,8 @@ import Pop from "../utils/Pop";
 import { useParams } from "react-router-dom";
 import EventDetails from "../components/EventDetails.jsx";
 import "./Styles/EventDetailsPage.scss";
-import TicketEvent from "../components/TicketHolders.jsx";
+import TicketEvent from "../components/Ticket.jsx";
+import { ticketsService } from "../services/TicketsService";
 
 function eventDetailsPage() {
     // let event = AppState.event;
@@ -22,8 +23,17 @@ function eventDetailsPage() {
             Pop.error(error.message)
         }
     }
+
+    async function getTicketsByEventId() {
+        try {
+            await ticketsService.getTicketsByEventId(eventId)
+        } catch (error) {
+            Pop.error(error.message)
+        }
+    }
     useEffect(() => {
-        getEventById()
+        getEventById(),
+        getTicketsByEventId()
     }, [eventId]);
 
     return(
