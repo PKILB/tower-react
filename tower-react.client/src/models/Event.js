@@ -1,3 +1,5 @@
+import { Profile } from "./Account";
+
 export class Event {
     constructor(data = {} ){
         this.id = data.id;
@@ -9,7 +11,14 @@ export class Event {
         this.startDate = new Date(data.startDate).toLocaleDateString();
         this.isCanceled = data.description;
         this.type = data.type;
-        this.creator = data.creator;
-        this.creatorId = data.creatorId
+        this.creator = new Profile(data.creator);
+        // this.creatorId = data.creatorId
+    }
+}
+
+export class TicketEvent extends Event {
+    constructor(data) {
+        super(data.event)
+        this.ticketId = data.id
     }
 }
