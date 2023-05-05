@@ -1,10 +1,10 @@
 import React from "react";
-import {Attendee} from "../models/Attendee";
-import { Event } from "../models/Event";
+// import { Event } from "../models/Event";
+// import { TicketEvent } from "./models/Event";
 
 
 // /**@param {{event:Event, attendee:Attendee}} props */
-export default function Attendees() {
+export default function TicketEvent() {
 
     return (
         <div className="row pt-4">

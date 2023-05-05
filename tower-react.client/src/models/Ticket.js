@@ -1,7 +1,7 @@
 import { Profile } from "./Account";
-export class Attendee extends Profile {
+export class TicketProfile extends Profile {
     constructor(data) {
         super(data.profile)
-        this.attendeeId = data.id
+        this.ticketId = data.id
     }
 }

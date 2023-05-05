@@ -7,7 +7,7 @@ import Pop from "../utils/Pop";
 import { useParams } from "react-router-dom";
 import EventDetails from "../components/EventDetails.jsx";
 import "./Styles/EventDetailsPage.scss";
-import Attendees from "../components/Attendees.jsx";
+import TicketEvent from "../components/TicketHolders.jsx";
 
 function eventDetailsPage() {
     // let event = AppState.event;
@@ -35,7 +35,7 @@ function eventDetailsPage() {
                 <EventDetails event={event} />
                         </div>
                     </div>
-                <Attendees />
+                <TicketEvent />
                 </div>
             </div>
         </section>
