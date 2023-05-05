@@ -31,6 +31,14 @@ function eventDetailsPage() {
             Pop.error(error.message)
         }
     }
+
+    let tickets = (AppState.tickets.map(t => {
+        return (
+            <div className="col-11 m-auto" key={t.id}>
+                <TicketEvent />
+            </div>
+        )
+    }))
     useEffect(() => {
         getEventById(),
         getTicketsByEventId()
@@ -45,7 +53,7 @@ function eventDetailsPage() {
                 <EventDetails event={event} />
                         </div>
                     </div>
-                <TicketEvent />
+                {tickets}
                 </div>
             </div>
         </section>

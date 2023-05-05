@@ -1,9 +1,14 @@
+import { AppState } from "../AppState";
+import { TicketProfile } from "../models/Ticket";
+import { api } from "./AxiosService";
 
 
 
 class TicketsService {
-    getTicketsByEventId(eventId) {
-        throw new Error("Method not implemented.");
+    async getTicketsByEventId(eventId) {
+        AppState.tickets = []
+        const res = await api.get('api/events/' + eventId + '/tickets')
+        AppState.tickets = res.data.map(t => new TicketProfile(t))
     }
 
 

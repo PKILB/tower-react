@@ -10,7 +10,8 @@ class ObservableAppState {
   /** @type {import('./models/Event.js').Event[]} */
   events = [];
   activeEvent = {};
-  // /** @type {import('./models/Event.js').Event|null} */
+  /** @type {import('./models/Ticket.js').TicketProfile[]} */
+  tickets = [];
   constructor() {
     makeAutoObservable(this)
   }
