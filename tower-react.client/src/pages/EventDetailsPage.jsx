@@ -7,8 +7,9 @@ import Pop from "../utils/Pop";
 import { useParams } from "react-router-dom";
 import EventDetails from "../components/EventDetails.jsx";
 import "./Styles/EventDetailsPage.scss";
-import TicketEvent from "../components/Ticket.jsx";
+// import TicketEvent from "../components/Ticket.jsx";
 import { ticketsService } from "../services/TicketsService";
+import Ticket from "../components/Ticket";
 
 function eventDetailsPage() {
     // let event = AppState.event;
@@ -33,9 +34,13 @@ function eventDetailsPage() {
     }
 
     let tickets = (AppState.tickets.map(t => {
+        console.log('TicketComponent')
         return (
-            <div className="col-11 m-auto" key={t.id}>
-                <TicketEvent />
+            <div className="row pt-4">
+                
+                <div className="col-11 m-auto" key={t.id}>
+                    <Ticket />
+                </div>
             </div>
         )
     }))
@@ -44,6 +49,7 @@ function eventDetailsPage() {
         getTicketsByEventId()
     }, [eventId]);
 
+    {console.log(tickets)}
     return(
         <section>
             <div className="container-fluid">
@@ -53,7 +59,12 @@ function eventDetailsPage() {
                 <EventDetails event={event} />
                         </div>
                     </div>
-                {tickets}
+                </div>
+                <div className="row pt-4">
+                    <div className="col-11 m-auto">
+                        <h4>See who is attending</h4>
+                    </div>
+                    {tickets}
                 </div>
             </div>
         </section>

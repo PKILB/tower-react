@@ -16,9 +16,9 @@ export class Event {
     }
 }
 
-export class TicketEvent extends Event {
-    constructor(data) {
-        super(data.event)
-        this.ticketId = data.id
-    }
-}
+// export class TicketEvent extends Event {
+//     constructor(data) {
+//         super(data.event)
+//         this.ticketId = data.id
+//     }
+// }

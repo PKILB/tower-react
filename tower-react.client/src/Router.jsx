@@ -33,7 +33,7 @@ export const router = createHashRouter([
           </AuthGuard>,
       },
       {
-        path: "event/:eventId",
+        path: "events/:eventId",
         element: <EventDetailsPage/>,
       }
 
