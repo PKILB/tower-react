@@ -31,8 +31,8 @@ import "./Styles/HomePage.scss"
   return (
     <section className="home-page">
       <div className="container-fluid my-3">
-        <div className="row ">
-          <div className="col-12 m-auto">
+        <div className="row">
+          <div className="col-12 d-flex justify-content-center">
           <div className="position-relative">
           <img src={unsplash} alt="" className="img-size"/>
             <div className="row position-absolute top-0 start-0 py-3 px-5">
