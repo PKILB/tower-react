@@ -1,5 +1,6 @@
 import { AppState } from "../AppState";
 import { TicketProfile } from "../models/Ticket";
+import { logger } from "../utils/Logger";
 import { api } from "./AxiosService";
 
 
@@ -7,6 +8,7 @@ import { api } from "./AxiosService";
 class TicketsService {
     async attendEvent(eventData) {
         const res = await api.post('api/tickets', eventData)
+        logger.log(res.data, 'create ticket')
         AppState.tickets.push(new TicketProfile(res.data))
     }
     async getTicketsByEventId(eventId) {

@@ -10,11 +10,11 @@ import { useParams } from "react-router-dom";
 // /**@param {{event:Event}} */
 export default function EventDetails({event}) {
 
-    const { eventId } = useParams();
+    // const { eventId } = useParams();
     async function attendEvent() {
         try {
             if(AppState.account?.id) {
-                await ticketsService.attendEvent(eventId);
+                await ticketsService.attendEvent(AppState.activeEvent.id);
                 AppState.activeEvent.capacity--;
             }
         } catch (error) {
