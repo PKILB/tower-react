@@ -1,9 +1,27 @@
 import  PropTypes  from "prop-types";
 import React from "react";
 import "./styles/EventDetails.scss";
+import { AppState } from "../AppState";
+import { ticketsService } from "../services/TicketsService";
+import Pop from "../utils/Pop";
+import { useParams } from "react-router-dom";
+// import { Event } from "../models/Event";
 
 // /**@param {{event:Event}} */
 export default function EventDetails({event}) {
+
+    const { eventId } = useParams();
+    async function attendEvent() {
+        try {
+            if(AppState.account?.id) {
+                await ticketsService.attendEvent(eventId);
+                AppState.activeEvent.capacity--;
+            }
+        } catch (error) {
+            Pop.error(error.message)
+        }
+    }
+
     return (
         <div className="row py-5 pe-5">
                 <div className="col-4 d-flex justify-content-center">
@@ -27,7 +45,7 @@ export default function EventDetails({event}) {
                         <h3>{event.capacity} spots left</h3>
                         </div>
                         <div className="col-4 d-flex justify-content-end">
-                        <button className="btn btn-warning d-flex justify-content-end">Attend</button>
+                        <button onClick={attendEvent} className="btn btn-warning d-flex justify-content-end">Attend</button>
                         </div>
                     </div>
                 </div>
