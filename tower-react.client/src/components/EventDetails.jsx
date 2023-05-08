@@ -9,7 +9,7 @@ export default function EventDetails({event}) {
                 <div className="col-4 d-flex justify-content-center">
                     <img src={event.coverImg} alt="" className="img-fluid image-size"/>
                 </div>
-                <div className="col-8">
+                <div className="col-8 d-flex flex-column justify-column-between">
                     <div className="row pb-4">
                         <div className="col-8">
                     <h2 className="pb-4">{event.name}</h2>
@@ -19,11 +19,15 @@ export default function EventDetails({event}) {
                         </div>
                     <h2>{event.location}</h2>
                     </div>
-
-                    <p>{event.description}</p>
                     <div className="row">
-                        <div className="col-8 d-flex align-content-between">
+                    <p>{event.description}</p>
+                    </div>
+                    <div className="row">
+                        <div className="col-8">
                         <h3>{event.capacity} spots left</h3>
+                        </div>
+                        <div className="col-4 d-flex justify-content-end">
+                        <button className="btn btn-warning d-flex justify-content-end">Attend</button>
                         </div>
                     </div>
                 </div>
